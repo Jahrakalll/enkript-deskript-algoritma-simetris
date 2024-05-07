@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AES Encryption Decryption</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h2>Algoritma Simetris Encryption Decryption</h2>
+    <textarea id="inputText" placeholder="Enter text to encrypt or decrypt"></textarea><br>
+    <button onclick="encrypt()">Encrypt</button>
+    <button onclick="decrypt()">Decrypt</button><br>
+    <textarea id="outputText" placeholder="Result will be shown here" readonly></textarea>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script>
+        function validatePassword(password) {
+            // Check if the password length is 16, 24, or 32 characters (128, 192, or 256 bits)
+            return [16, 24, 32].includes(password.length);
+        }
+
+        function encrypt() {
+            var plaintext = document.getElementById("inputText").value;
+            var password = prompt("Enter password for encryption:");
+            if (!validatePassword(password)) {
+                alert("Password must be 16, 24, or 32 characters long (128, 192, or 256 bits).");
+                return;
+            }
+            var ciphertext = CryptoJS.AES.encrypt(plaintext, password).toString();
+            document.getElementById("outputText").value = ciphertext;
+        }
+
+        function decrypt() {
+            var ciphertext = document.getElementById("inputText").value;
+            var password = prompt("Enter password for decryption:");
+            if (!validatePassword(password)) {
+                alert("Password must be 16, 24, or 32 characters long (128, 192, or 256 bits).");
+                return;
+            }
+            try {
+                var bytes  = CryptoJS.AES.decrypt(ciphertext, password);
+                var originalText = bytes.toString(CryptoJS.enc.Utf8);
+                document.getElementById("outputText").value = originalText;
+            } catch (e) {
+                alert("Decryption failed. Please check your password.");
+            }
+        }
+    </script>
+</body>
+</html>

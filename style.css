@@ -1,0 +1,58 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Menambahkan flex-direction untuk mengatur elemen secara vertikal */
+    height: 100vh;
+    background-color: #630cee;
+}
+
+.container {
+    max-width: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px; /* Menambahkan margin bawah untuk memberikan jarak dengan elemen-elemen lainnya */
+}
+
+textarea {
+    width: calc(80% - 20px); /* 20px padding */
+    min-height: 100px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    resize: vertical;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px; /* Menambahkan margin */
+    background-color: #3fb0fc;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:active {
+    background-color: #0056b3;
+    transform: translateY(1px);
+}
+
+button:focus {
+    outline: none;
+}
